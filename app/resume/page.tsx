@@ -3,8 +3,8 @@ export default function Resume() {
     { name: 'AlphaXAI', meta: 'Python · FastAPI · Node.js · Docker · Render · PostgreSQL', url: '', desc: 'Enterprise microservices architecture orchestrating a Python API Gateway, multi-service Node.js backend, and a dedicated Python ML Worker. Integrates Agentic workflows and LLM tool calling within a fully containerized GitOps deployment.' },
     { name: 'DiveAI Trading Agent', meta: 'Next.js · TypeScript · Python · Gemini AI · Docker', url: 'https://diveai-trading-analysis.vercel.app', desc: 'Autonomous trading intelligence platform utilizing Agentic workflows to encode financial methodology into a full-stack pipeline with production-level LLM Tool Calling.' },
     { name: 'ICT Knowledge Engine', meta: 'Next.js · React · Semantic Search · Vector DBs', url: 'https://ict-knowledge-engine.vercel.app', desc: 'Semantic knowledge graph designed on domain ontologies. Features a Retrieval-Augmented Generation (RAG) pipeline for semantic data discovery and interactive graph visualization.' },
-    { name: 'Panther Finder', meta: 'Python · Streamlit · AWS Bedrock · Claude 3 · S3', url: '', desc: 'Campus navigation RAG assistant — natural language queries resolved against a Bedrock Knowledge Base with source-aware, map-linked responses and full ingestion pipeline.' },
-    { name: 'Viva Picks', meta: 'React · Node.js · Turso', url: 'https://vivapicks.tech', desc: 'Real-time sports betting analytics platform with microservice architecture, live odds processing, targeting 99.9% uptime.' },
+    { name: 'Campus Compass', meta: 'Next.js · React · Pinecone · OpenAI', url: 'https://campuscompass-next.vercel.app', desc: 'AI-powered campus navigation assistant featuring semantic course search and interactive prerequisite graphs.' },
+    { name: 'Viva Picks', meta: 'React · Node.js · Turso', url: 'https://bet.vivapicks.tech/', desc: 'Real-time sports betting analytics platform with microservice architecture, live odds processing, targeting 99.9% uptime.' },
   ]
   const sidebar = [
     { t: 'Languages', i: ['Python', 'TypeScript', 'JavaScript', 'SQL'] },
