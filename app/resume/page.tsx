@@ -1,6 +1,6 @@
 export default function Resume() {
   const projects = [
-    { name: 'AlphaXAI', meta: 'Python · FastAPI · Node.js · Docker · Render · PostgreSQL', url: '', desc: 'Enterprise microservices architecture orchestrating a Python API Gateway, multi-service Node.js backend, and a dedicated Python ML Worker. Integrates Agentic workflows and LLM tool calling within a fully containerized GitOps deployment.' },
+    { name: 'GhostSSH', meta: 'Next.js · React · TypeScript · Claude · OpenRouter', url: 'https://dashboard-tau-three-30.vercel.app/', desc: 'Autonomous AI Job Agent orchestrating multi-LLM workflows for profile extraction and job hunting.' },
     { name: 'DiveAI Trading Agent', meta: 'Next.js · TypeScript · Python · Gemini AI · Docker', url: 'https://diveai-trading-analysis.vercel.app', desc: 'Autonomous trading intelligence platform utilizing Agentic workflows to encode financial methodology into a full-stack pipeline with production-level LLM Tool Calling.' },
     { name: 'ICT Knowledge Engine', meta: 'Next.js · React · Semantic Search · Vector DBs', url: 'https://ict-knowledge-engine.vercel.app', desc: 'Semantic knowledge graph designed on domain ontologies. Features a Retrieval-Augmented Generation (RAG) pipeline for semantic data discovery and interactive graph visualization.' },
     { name: 'Campus Compass', meta: 'Next.js · React · Pinecone · OpenAI', url: 'https://campuscompass-next.vercel.app', desc: 'AI-powered campus navigation assistant featuring semantic course search and interactive prerequisite graphs.' },

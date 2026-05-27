@@ -16,23 +16,25 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: "alphaxai-enterprise",
-    title: "AlphaXAI",
-    tagline: "Enterprise microservices architecture with an API gateway, multi-service Node.js backend, and a Python-based ML/Agentic worker.",
-    overview: "AlphaXAI is an enterprise-grade AI SaaS platform designed for high scalability. It orchestrates multiple specialized microservices under a centralized API gateway, integrating autonomous agent workflows with internal data services.",
-    problem: "Monolithic AI applications struggle to scale when ML inference tasks compete with standard business logic and data processing operations.",
-    solution: "A decoupled, fully containerized microservice architecture. Heavy ML and agentic workflows are offloaded to a specialized Python FastAPI worker connected to local LLMs, while core business logic and database operations are handled by independent Node.js services.",
+    slug: "ghostssh",
+    title: "GhostSSH",
+    tagline: "Autonomous AI Job Agent built on Next.js orchestrating multi-LLM workflows for profile extraction and job hunting.",
+    overview: "GhostSSH is an intelligent job-hunting agent that seamlessly extracts developer profiles from GitHub, LinkedIn, and personal websites, and autonomously routes structured queries across multiple LLM providers (Claude, GPT-4o, Gemini, Minimax, OpenRouter) to identify top-tier job opportunities.",
+    problem: "Job searching is manual and fragmented. Developers waste hours aggregating their profiles and parsing through irrelevant job boards instead of letting an AI agent synthesize their identity and actively hunt for matches.",
+    solution: "A dynamic AI application that automates the recruitment pipeline. By passing target URLs into a robust extraction engine, the agent builds a comprehensive knowledge graph of the user's skillset and executes multi-model prompts to surface highly relevant, high-signal job matches.",
     bullets: [
-      "Architected a full-stack microservices ecosystem utilizing Turborepo and pnpm workspaces",
-      "Built a centralized Python API Gateway (FastAPI) routing to 6 independent Node.js/Express services",
-      "Engineered a dedicated Python Worker Service executing Agentic workflows and LLM Tool Calling via Ollama",
-      "Implemented strict REST API specifications (OpenAPI/JSON) and inter-service JWT authentication",
-      "Fully containerized infrastructure deployed via GitOps (Render IaC, Docker Compose) featuring PostgreSQL and Redis"
+      "Engineered an autonomous profile extraction pipeline scraping GitHub, LinkedIn, and personal domains",
+      "Integrated a multi-model orchestration layer interacting with Claude 3.5, GPT-4o, and Gemini APIs",
+      "Built a modern Next.js frontend with real-time Kanban board tracking for job applications",
+      "Implemented a dynamic parameter routing system allowing users to define Top K results, locations, and target titles",
+      "Deployed fully serverless on Vercel with resilient API route handling for long-running LLM processes"
     ],
-    stack: ["Python", "FastAPI", "Node.js", "Express", "Docker", "PostgreSQL", "Ollama", "Microservices"],
-    architecture: "API Gateway → Internal Network → Specialized Microservices ↔ Python ML Worker ↔ Database Cluster",
+    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel", "Claude", "OpenRouter"],
+    architecture: "Frontend UI → URL Extractor Service → LLM Router (Claude/GPT/Gemini) → Aggregated Output → Kanban State",
+    liveUrl: "https://dashboard-tau-three-30.vercel.app/",
+    repoUrl: "https://github.com/sixscripts-ai/ghostssh",
     featured: true,
-    category: "Enterprise AI Infrastructure",
+    category: "AI Agent System",
   },
   {
     slug: "diveai-trading-agent",
