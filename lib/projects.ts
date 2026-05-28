@@ -37,10 +37,10 @@ export const projects: Project[] = [
     category: "AI Agent System",
   },
   {
-    slug: "alphax-ai",
-    title: "AlphaX AI (Aqentix)",
+    slug: "aqentix",
+    title: "Aqentix",
     tagline: "AI-powered enterprise inventory intelligence platform for demand prediction and stock optimization.",
-    overview: "AlphaX AI is a comprehensive inventory management platform designed for multi-location businesses. It automates reordering, visualizes trends, and integrates seamlessly with accounting software while offering predictive forecasting and real-time analytics.",
+    overview: "Aqentix is a comprehensive inventory management platform designed for multi-location businesses. It automates reordering, visualizes trends, and integrates seamlessly with accounting software while offering predictive forecasting and real-time analytics.",
     problem: "Multi-location businesses struggle with tracking inventory movements, preventing stockouts, and reducing overstock without a centralized, intelligent system.",
     solution: "A robust platform that utilizes AI-driven demand planning and natural language agent chat to optimize stock, automate reordering, and provide smart customizable dashboards.",
     bullets: [

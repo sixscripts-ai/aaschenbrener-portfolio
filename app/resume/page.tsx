@@ -1,7 +1,7 @@
 export default function Resume() {
   const projects = [
     { name: 'GhostSSH', meta: 'Next.js · React · TypeScript · Claude · OpenRouter', url: 'https://dashboard-tau-three-30.vercel.app/', desc: 'Autonomous AI Job Agent orchestrating multi-LLM workflows for profile extraction and job hunting.' },
-    { name: 'AlphaX AI', meta: 'Next.js · React · TypeScript · Tailwind CSS · AI Agents', url: 'https://aqentix.me/', desc: 'Enterprise inventory intelligence platform. Features predictive forecasting, real-time analytics, and an AI Agent Chat for natural language queries.' },
+    { name: 'Aqentix', meta: 'Next.js · React · TypeScript · Tailwind CSS · AI Agents', url: 'https://aqentix.me/', desc: 'Enterprise inventory intelligence platform. Features predictive forecasting, real-time analytics, and an AI Agent Chat for natural language queries.' },
     { name: 'ICT Knowledge Engine', meta: 'Next.js · React · Semantic Search · Vector DBs', url: 'https://ict-knowledge-engine.vercel.app', desc: 'Semantic knowledge graph designed on domain ontologies. Features a Retrieval-Augmented Generation (RAG) pipeline for semantic data discovery and interactive graph visualization.' },
     { name: 'Campus Compass', meta: 'Next.js · React · Pinecone · OpenAI', url: 'https://campuscompass-next.vercel.app', desc: 'AI-powered campus navigation assistant featuring semantic course search and interactive prerequisite graphs.' },
     { name: 'Viva Picks', meta: 'React · Node.js · Turso', url: 'https://bet.vivapicks.tech/', desc: 'Real-time sports betting analytics platform with microservice architecture, live odds processing, targeting 99.9% uptime.' },
