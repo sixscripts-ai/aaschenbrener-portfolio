@@ -13,36 +13,27 @@ export default function Nav() {
   const path = usePathname()
 
   return (
-    <header style={{
-      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-      borderBottom: '1px solid var(--border)',
-      background: 'rgba(11,13,17,0.85)',
-      backdropFilter: 'blur(12px)',
-      WebkitBackdropFilter: 'blur(12px)',
-    }}>
-      <div style={{
-        maxWidth: 1100, margin: '0 auto',
-        padding: '0 2rem',
-        height: 56,
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-      }}>
-        <Link href="/" style={{ fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: 15, letterSpacing: '-0.01em', color: 'var(--text)' }}>
+    <div className="fixed top-6 left-0 right-0 z-[100] flex justify-center px-4">
+      <header className="glass-panel px-6 py-3 flex items-center gap-8 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+        <Link href="/" className="font-outfit font-black text-xl tracking-tighter text-gradient hover:scale-110 transition-transform">
           AA
         </Link>
-        <nav style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+        <nav className="flex gap-6 items-center">
           {links.map(l => (
-            <Link key={l.href} href={l.href} style={{
-              fontSize: 14,
-              fontWeight: 400,
-              color: path === l.href ? 'var(--text)' : 'var(--muted)',
-              transition: 'color 0.15s',
-              letterSpacing: '0.01em',
-            }}>
+            <Link 
+              key={l.href} 
+              href={l.href} 
+              className={`font-jakarta text-sm font-semibold transition-all duration-300 ${
+                path === l.href 
+                  ? 'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]' 
+                  : 'text-gray-400 hover:text-white'
+              }`}
+            >
               {l.label}
             </Link>
           ))}
         </nav>
-      </div>
-    </header>
+      </header>
+    </div>
   )
 }

@@ -16,124 +16,123 @@ export default function Home() {
 
   return (
     <>
-      <section style={{
-        minHeight: 'calc(100vh - 56px)',
-        display: 'flex', flexDirection: 'column', justifyContent: 'center',
-        maxWidth: 1100, margin: '0 auto', padding: '6rem 2rem 4rem',
-        position: 'relative',
-      }}>
-        <div style={{
-          position: 'absolute', top: '30%', left: '-10%', width: 500, height: 500,
-          background: 'radial-gradient(circle, rgba(77,158,255,0.05) 0%, transparent 70%)',
-          pointerEvents: 'none',
-        }} />
-        <p className="mono fade-up" style={{ color: 'var(--accent)', marginBottom: '1.5rem', letterSpacing: '0.08em' }}>
+      <section className="min-h-[85vh] flex flex-col justify-center max-w-6xl mx-auto px-6 relative">
+        <p className="font-outfit text-electric-cyan tracking-[0.15em] uppercase text-sm mb-6 animate-fade-up d1">
           sixscripts-ai
         </p>
-        <h1 className="fade-up d1" style={{
-          fontSize: 'clamp(2.8rem, 7vw, 5.5rem)', fontWeight: 800,
-          color: 'var(--text)', maxWidth: 860, lineHeight: 1.08, marginBottom: '1.75rem',
-        }}>
-          I build AI systems that retrieve, reason, and ship.
+        <h1 className="font-outfit text-5xl md:text-7xl font-black text-white max-w-4xl leading-[1.05] mb-8 animate-fade-up d2 tracking-tight">
+          I build AI systems that <br/>
+          <span className="text-gradient">retrieve, reason, and ship.</span>
         </h1>
-        <p className="fade-up d2" style={{
-          fontSize: 'clamp(1rem, 2vw, 1.2rem)', color: 'var(--muted)',
-          maxWidth: 580, lineHeight: 1.7, marginBottom: '2.75rem', fontWeight: 300,
-        }}>
+        <p className="font-jakarta text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed mb-12 animate-fade-up d3 font-light">
           From RAG assistants and knowledge engines to trading intelligence platforms and automation tooling — full-stack systems that turn advanced logic into real software.
         </p>
-        <div className="fade-up d3" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-          <Link href="/projects" style={{
-            padding: '0.75rem 1.75rem', background: 'var(--accent)', color: '#fff',
-            borderRadius: 6, fontFamily: 'Syne, sans-serif', fontWeight: 600, fontSize: 14,
-          }}>View Projects</Link>
-          <Link href="/resume" style={{
-            padding: '0.75rem 1.75rem', border: '1px solid var(--border-2)', color: 'var(--text)',
-            borderRadius: 6, fontFamily: 'Syne, sans-serif', fontWeight: 600, fontSize: 14,
-          }}>Download Resume</Link>
+        <div className="flex flex-wrap gap-4 animate-fade-up d4">
+          <Link href="/projects" className="pill-button pill-primary">
+            View Projects
+          </Link>
+          <Link href="/resume" className="pill-button pill-secondary">
+            Download Resume
+          </Link>
         </div>
       </section>
 
-      <div style={{ borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', background: 'var(--bg-2)' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '1.25rem 2rem', display: 'flex', gap: '2rem', flexWrap: 'wrap', alignItems: 'center' }}>
-          <span className="mono" style={{ color: 'var(--muted)', fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Stack</span>
-          {stack.map(s => <span key={s} className="mono" style={{ color: 'var(--text)', fontSize: 13 }}>{s}</span>)}
+      <div className="border-y border-white/10 bg-white/5 backdrop-blur-md">
+        <div className="max-w-6xl mx-auto px-6 py-6 flex gap-6 flex-wrap items-center">
+          <span className="font-outfit text-xs text-neon-pink tracking-[0.2em] uppercase font-bold mr-4">Stack</span>
+          {stack.map(s => (
+            <span key={s} className="font-jakarta text-sm font-medium text-gray-200">{s}</span>
+          ))}
         </div>
       </div>
 
-      <section style={{ maxWidth: 1100, margin: '0 auto', padding: '6rem 2rem' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '3rem' }}>
-          <h2 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 700, color: 'var(--text)' }}>Featured Work</h2>
-          <Link href="/projects" className="mono" style={{ fontSize: 13, color: 'var(--accent)' }}>All projects →</Link>
+      <section className="max-w-6xl mx-auto px-6 py-24">
+        <div className="flex justify-between items-baseline mb-12">
+          <h2 className="font-outfit text-3xl md:text-4xl font-bold text-white">Featured Work</h2>
+          <Link href="/projects" className="font-outfit text-sm font-bold text-electric-cyan hover:text-neon-pink transition-colors">
+            All projects →
+          </Link>
         </div>
-        <div style={{ display: 'grid', gap: '1.25rem' }}>
-          {featured.map(p => (
-            <Link key={p.slug} href={`/projects/${p.slug}`} style={{ display: 'block' }}>
-              <div style={{
-                border: '1px solid var(--border)', borderRadius: 10, padding: '2rem 2.25rem',
-                background: 'var(--bg-2)', display: 'grid', gridTemplateColumns: '1fr auto',
-                gap: '1rem', alignItems: 'start', transition: 'border-color 0.2s, background 0.2s', cursor: 'pointer',
-              }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {featured.map((p, i) => (
+            <Link key={p.slug} href={`/projects/${p.slug}`} className="block group">
+              <div className="glass-panel p-8 h-full flex flex-col justify-between relative overflow-hidden">
+                {/* Decorative glow inside card */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-neon-purple/20 rounded-full blur-[50px] group-hover:bg-neon-pink/30 transition-colors" />
+                
                 <div>
-                  <div style={{ marginBottom: '0.6rem' }}>
-                    <span className="mono" style={{
-                      fontSize: 11, color: 'var(--accent)', letterSpacing: '0.08em', textTransform: 'uppercase',
-                      background: 'var(--accent-dim)', padding: '2px 8px', borderRadius: 3,
-                    }}>{p.category}</span>
+                  <div className="mb-4">
+                    <span className="font-outfit text-xs font-bold text-electric-cyan tracking-wider uppercase bg-electric-cyan/10 px-3 py-1 rounded-full">
+                      {p.category}
+                    </span>
                   </div>
-                  <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--text)', marginBottom: '0.4rem' }}>{p.title}</h3>
-                  <p style={{ color: 'var(--muted)', fontSize: 14, lineHeight: 1.6, maxWidth: 620 }}>{p.tagline}</p>
-                  <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1.1rem', flexWrap: 'wrap' }}>
-                    {p.stack.slice(0, 5).map(s => (
-                      <span key={s} className="mono" style={{ fontSize: 11, color: 'var(--muted)', border: '1px solid var(--border)', padding: '2px 8px', borderRadius: 3 }}>{s}</span>
-                    ))}
-                  </div>
+                  <h3 className="font-outfit text-2xl font-bold text-white mb-3 group-hover:text-neon-pink transition-colors">
+                    {p.title}
+                  </h3>
+                  <p className="font-jakarta text-gray-300 text-sm leading-relaxed mb-6">
+                    {p.tagline}
+                  </p>
                 </div>
-                <div style={{ color: 'var(--muted)', fontSize: 20, paddingTop: 4 }}>→</div>
+                <div className="flex gap-2 flex-wrap mt-auto">
+                  {p.stack.slice(0, 4).map(s => (
+                    <span key={s} className="font-jakarta text-[10px] text-gray-400 border border-white/10 px-2 py-1 rounded-md bg-white/5">
+                      {s}
+                    </span>
+                  ))}
+                  {p.stack.length > 4 && (
+                    <span className="font-jakarta text-[10px] text-gray-400 border border-white/10 px-2 py-1 rounded-md bg-white/5">
+                      +{p.stack.length - 4}
+                    </span>
+                  )}
+                </div>
               </div>
             </Link>
           ))}
         </div>
       </section>
 
-      <section style={{ borderTop: '1px solid var(--border)', background: 'var(--bg-2)' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '6rem 2rem' }}>
-          <h2 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 700, color: 'var(--text)', marginBottom: '3rem' }}>What I Build</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '1.25rem' }}>
+      <section className="border-t border-white/10 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
+        <div className="max-w-6xl mx-auto px-6 py-24 relative z-10">
+          <h2 className="font-outfit text-3xl md:text-4xl font-bold text-white mb-12">What I Build</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {focuses.map(f => (
-              <div key={f.label} style={{ border: '1px solid var(--border)', borderRadius: 8, padding: '1.5rem', background: 'var(--bg)' }}>
-                <div style={{ width: 6, height: 28, background: 'var(--accent)', borderRadius: 3, marginBottom: '1rem' }} />
-                <h4 style={{ fontFamily: 'Syne, sans-serif', fontSize: 15, fontWeight: 700, color: 'var(--text)', marginBottom: '0.5rem' }}>{f.label}</h4>
-                <p style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.65 }}>{f.desc}</p>
+              <div key={f.label} className="glass-panel p-8 group">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-neon-pink to-neon-purple flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(255,46,147,0.5)] group-hover:scale-110 transition-transform">
+                  <div className="w-4 h-4 bg-white rounded-full opacity-80" />
+                </div>
+                <h4 className="font-outfit text-xl font-bold text-white mb-3">{f.label}</h4>
+                <p className="font-jakarta text-sm text-gray-400 leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section style={{ maxWidth: 1100, margin: '0 auto', padding: '6rem 2rem' }}>
-        <div style={{ maxWidth: 640 }}>
-          <h2 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 700, color: 'var(--text)', marginBottom: '1.5rem' }}>About</h2>
-          <p style={{ color: 'var(--muted)', lineHeight: 1.8, marginBottom: '1rem' }}>
+      <section className="max-w-6xl mx-auto px-6 py-24">
+        <div className="max-w-2xl">
+          <h2 className="font-outfit text-3xl md:text-4xl font-bold text-white mb-6">About</h2>
+          <p className="font-jakarta text-gray-300 leading-relaxed mb-6 text-lg font-light">
             I'm an AI engineer and full-stack developer focused on building systems that think, retrieve, automate, and scale. Pursuing an AI degree at MiraCosta College while shipping production-minded work across campus navigation, semantic knowledge engines, trading systems, cybersecurity tooling, and live data pipelines.
           </p>
-          <p style={{ color: 'var(--muted)', lineHeight: 1.8, marginBottom: '2rem' }}>
+          <p className="font-jakarta text-gray-300 leading-relaxed mb-10 text-lg font-light">
             I care about architecture, execution, and turning technically difficult ideas into usable products — from interface design through cloud deployment.
           </p>
-          <Link href="/contact" style={{ fontFamily: 'Syne, sans-serif', fontSize: 14, fontWeight: 600, color: 'var(--accent)' }}>
-            Get in touch →
+          <Link href="/contact" className="font-outfit text-neon-pink font-bold text-lg hover:text-white transition-colors flex items-center gap-2">
+            Get in touch 
+            <span className="text-xl">→</span>
           </Link>
         </div>
       </section>
 
-      <section style={{ borderTop: '1px solid var(--border)', background: 'var(--bg-2)' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '5rem 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '2rem' }}>
-          <h2 style={{ fontSize: 'clamp(1.4rem, 3vw, 2rem)', fontWeight: 700, color: 'var(--text)', maxWidth: 460 }}>
+      <section className="border-t border-white/10 bg-white/[0.02]">
+        <div className="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row justify-between items-center gap-10">
+          <h2 className="font-outfit text-2xl md:text-3xl font-bold text-white max-w-lg leading-tight">
             Looking for someone who can turn AI into a working product?
           </h2>
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            <Link href="/projects" style={{ padding: '0.75rem 1.5rem', background: 'var(--accent)', color: '#fff', borderRadius: 6, fontFamily: 'Syne, sans-serif', fontWeight: 600, fontSize: 14 }}>View Case Studies</Link>
-            <Link href="/contact" style={{ padding: '0.75rem 1.5rem', border: '1px solid var(--border-2)', color: 'var(--text)', borderRadius: 6, fontFamily: 'Syne, sans-serif', fontWeight: 600, fontSize: 14 }}>Get In Touch</Link>
+          <div className="flex gap-4 flex-wrap">
+            <Link href="/projects" className="pill-button pill-primary">View Case Studies</Link>
+            <Link href="/contact" className="pill-button pill-secondary">Get In Touch</Link>
           </div>
         </div>
       </section>

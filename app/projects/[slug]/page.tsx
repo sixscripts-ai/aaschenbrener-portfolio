@@ -12,71 +12,96 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   if (!p) notFound()
 
   return (
-    <div style={{ maxWidth: 1100, margin: '0 auto', padding: '4rem 2rem 8rem' }}>
-      <Link href="/projects" className="mono" style={{ fontSize: 13, color: 'var(--muted)', display: 'inline-block', marginBottom: '3rem' }}>← All Projects</Link>
+    <div className="max-w-6xl mx-auto px-6 py-24 relative">
+      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-neon-purple/20 blur-[150px] rounded-full pointer-events-none z-[-1]" />
 
-      <div style={{ maxWidth: 720, marginBottom: '4rem' }}>
-        <span className="mono" style={{ fontSize: 11, color: 'var(--accent)', letterSpacing: '0.08em', textTransform: 'uppercase', background: 'var(--accent-dim)', padding: '2px 8px', borderRadius: 3 }}>{p.category}</span>
-        <h1 style={{ fontSize: 'clamp(2rem,5vw,3.5rem)', fontWeight: 800, color: 'var(--text)', margin: '1rem 0 1.25rem' }}>{p.title}</h1>
-        <p style={{ fontSize: '1.1rem', color: 'var(--muted)', lineHeight: 1.7 }}>{p.tagline}</p>
-        <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap' }}>
-          {p.liveUrl && <a href={p.liveUrl} target="_blank" rel="noopener" style={{ padding: '0.65rem 1.4rem', background: 'var(--accent)', color: '#fff', borderRadius: 6, fontFamily: 'Syne,sans-serif', fontWeight: 600, fontSize: 13 }}>Live Site ↗</a>}
-          {p.repoUrl && <a href={p.repoUrl} target="_blank" rel="noopener" style={{ padding: '0.65rem 1.4rem', border: '1px solid var(--border-2)', color: 'var(--text)', borderRadius: 6, fontFamily: 'Syne,sans-serif', fontWeight: 600, fontSize: 13 }}>GitHub →</a>}
+      <Link href="/projects" className="font-outfit text-sm font-bold text-gray-400 hover:text-white transition-colors flex items-center gap-2 mb-12 w-fit">
+        ← Back to Projects
+      </Link>
+
+      <div className="max-w-3xl mb-16">
+        <span className="font-outfit text-[11px] font-bold text-neon-pink tracking-wider uppercase bg-neon-pink/10 px-3 py-1 rounded-full border border-neon-pink/20">
+          {p.category}
+        </span>
+        <h1 className="font-outfit text-4xl md:text-6xl font-black text-white my-6 tracking-tight">{p.title}</h1>
+        <p className="font-jakarta text-xl text-gray-300 leading-relaxed font-light">{p.tagline}</p>
+        
+        <div className="flex gap-4 mt-8 flex-wrap">
+          {p.liveUrl && (
+            <a href={p.liveUrl} target="_blank" rel="noopener" className="pill-button pill-primary">
+              Live Site ↗
+            </a>
+          )}
+          {p.repoUrl && (
+            <a href={p.repoUrl} target="_blank" rel="noopener" className="pill-button pill-secondary">
+              View Code →
+            </a>
+          )}
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 300px', gap: '3rem', alignItems: 'start' }}>
-        <div>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+        <div className="lg:col-span-2 flex flex-col gap-12">
           {[['Overview', p.overview], ['Problem', p.problem], ['Solution', p.solution]].map(([t, b]) => (
-            <div key={t} style={{ marginBottom: '2.5rem' }}>
-              <h2 style={{ fontFamily: 'Syne,sans-serif', fontSize: '1rem', fontWeight: 700, color: 'var(--text)', marginBottom: '0.75rem' }}>{t}</h2>
-              <p style={{ color: 'var(--muted)', lineHeight: 1.75, fontSize: 15 }}>{b}</p>
+            <div key={t}>
+              <h2 className="font-outfit text-2xl font-bold text-white mb-4 border-b border-white/10 pb-2">{t}</h2>
+              <p className="font-jakarta text-gray-300 leading-relaxed text-lg font-light">{b}</p>
             </div>
           ))}
 
-          <div style={{ marginBottom: '2.5rem' }}>
-            <h2 style={{ fontFamily: 'Syne,sans-serif', fontSize: '1rem', fontWeight: 700, color: 'var(--text)', marginBottom: '1rem' }}>What I Built</h2>
-            <ul style={{ listStyle: 'none', display: 'grid', gap: '0.6rem' }}>
+          <div>
+            <h2 className="font-outfit text-2xl font-bold text-white mb-6 border-b border-white/10 pb-2">What I Built</h2>
+            <ul className="flex flex-col gap-4">
               {p.bullets.map((b, i) => (
-                <li key={i} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
-                  <span style={{ color: 'var(--accent)', marginTop: '0.3rem', flexShrink: 0 }}>·</span>
-                  <span style={{ color: 'var(--muted)', fontSize: 15, lineHeight: 1.65 }}>{b}</span>
+                <li key={i} className="flex gap-4 items-start bg-white/5 p-4 rounded-xl border border-white/5">
+                  <span className="w-6 h-6 rounded-full bg-electric-cyan/20 text-electric-cyan flex items-center justify-center flex-shrink-0 text-xs font-bold mt-0.5">✓</span>
+                  <span className="font-jakarta text-gray-300 text-base leading-relaxed">{b}</span>
                 </li>
               ))}
             </ul>
           </div>
 
           <div>
-            <h2 style={{ fontFamily: 'Syne,sans-serif', fontSize: '1rem', fontWeight: 700, color: 'var(--text)', marginBottom: '1rem' }}>Architecture</h2>
-            <div style={{ background: 'var(--bg-3)', border: '1px solid var(--border)', borderRadius: 8, padding: '1.25rem 1.5rem' }}>
-              <p className="mono" style={{ color: 'var(--accent)', fontSize: 13, lineHeight: 1.8 }}>{p.architecture}</p>
+            <h2 className="font-outfit text-2xl font-bold text-white mb-4 border-b border-white/10 pb-2">Architecture</h2>
+            <div className="glass-panel p-6 border-l-4 border-l-neon-purple bg-neon-purple/5">
+              <p className="font-jakarta font-mono text-electric-cyan text-sm leading-relaxed">{p.architecture}</p>
             </div>
           </div>
         </div>
 
-        <div style={{ position: 'sticky', top: 80, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          <div style={{ border: '1px solid var(--border)', borderRadius: 10, overflow: 'hidden' }}>
-            <div style={{ background: 'var(--bg-3)', padding: '0.75rem 1.25rem', borderBottom: '1px solid var(--border)' }}>
-              <span className="mono" style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Stack</span>
+        <div className="lg:col-span-1 sticky top-32 flex flex-col gap-6">
+          <div className="glass-panel overflow-hidden">
+            <div className="bg-white/5 px-6 py-4 border-b border-white/10">
+              <span className="font-outfit text-xs font-bold text-gray-400 tracking-wider uppercase">Tech Stack</span>
             </div>
-            <div style={{ padding: '1rem 1.25rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <div className="p-6 flex flex-col gap-4">
               {p.stack.map(s => (
-                <div key={s} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                  <span style={{ width: 5, height: 5, borderRadius: '50%', background: 'var(--accent)', flexShrink: 0 }} />
-                  <span className="mono" style={{ fontSize: 13, color: 'var(--text)' }}>{s}</span>
+                <div key={s} className="flex items-center gap-3">
+                  <span className="w-2 h-2 rounded-full bg-gradient-to-r from-neon-pink to-electric-cyan flex-shrink-0" />
+                  <span className="font-jakarta text-sm text-gray-200 font-medium">{s}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {(p.liveUrl || p.repoUrl) && (
-            <div style={{ border: '1px solid var(--border)', borderRadius: 10, overflow: 'hidden' }}>
-              <div style={{ background: 'var(--bg-3)', padding: '0.75rem 1.25rem', borderBottom: '1px solid var(--border)' }}>
-                <span className="mono" style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Links</span>
+            <div className="glass-panel overflow-hidden">
+              <div className="bg-white/5 px-6 py-4 border-b border-white/10">
+                <span className="font-outfit text-xs font-bold text-gray-400 tracking-wider uppercase">Links</span>
               </div>
-              <div style={{ padding: '1rem 1.25rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                {p.liveUrl && <a href={p.liveUrl} target="_blank" rel="noopener" className="mono" style={{ fontSize: 12, color: 'var(--accent)', wordBreak: 'break-all' }}>{p.liveUrl.replace('https://','')} ↗</a>}
-                {p.repoUrl && <a href={p.repoUrl} target="_blank" rel="noopener" className="mono" style={{ fontSize: 12, color: 'var(--accent)', wordBreak: 'break-all' }}>{p.repoUrl.replace('https://','')} ↗</a>}
+              <div className="p-6 flex flex-col gap-4">
+                {p.liveUrl && (
+                  <a href={p.liveUrl} target="_blank" rel="noopener" className="font-jakarta text-sm text-neon-pink hover:text-white transition-colors break-all flex items-center justify-between group">
+                    <span>{p.liveUrl.replace('https://', '')}</span>
+                    <span className="group-hover:translate-x-1 transition-transform">↗</span>
+                  </a>
+                )}
+                {p.repoUrl && (
+                  <a href={p.repoUrl} target="_blank" rel="noopener" className="font-jakarta text-sm text-electric-cyan hover:text-white transition-colors break-all flex items-center justify-between group">
+                    <span>{p.repoUrl.replace('https://', '')}</span>
+                    <span className="group-hover:translate-x-1 transition-transform">↗</span>
+                  </a>
+                )}
               </div>
             </div>
           )}
