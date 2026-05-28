@@ -31,7 +31,7 @@ export const projects: Project[] = [
     ],
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel", "Claude", "OpenRouter"],
     architecture: "Frontend UI → URL Extractor Service → LLM Router (Claude/GPT/Gemini) → Aggregated Output → Kanban State",
-    liveUrl: "https://dashboard-tau-three-30.vercel.app/",
+    liveUrl: "https://ghostssh.vercel.app/",
     repoUrl: "https://github.com/sixscripts-ai/ghostssh",
     featured: true,
     category: "AI Agent System",
